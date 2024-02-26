@@ -1,0 +1,36 @@
+
+[1m[33mwarn[39m[22m - No utility classes were detected in your source files. If this is unexpected, double-check the `content` option in your Tailwind CSS configuration.
+[1m[33mwarn[39m[22m - https://tailwindcss.com/docs/content-configuration
+ [31m[1m⨯[22m[39m Error: The dialect mysql2 is not supported. Supported dialects: mssql, mariadb, mysql, oracle, postgres, db2 and sqlite.
+    at new Sequelize (/Users/890528gh/Desktop/side/task-app/node_modules/sequelize/lib/sequelize.js:192:15)
+    at eval (webpack-internal:///(api)/./utils/db.js:10:19)
+ [31m[1m⨯[22m[39m Error: The dialect mysql2 is not supported. Supported dialects: mssql, mariadb, mysql, oracle, postgres, db2 and sqlite.
+    at new Sequelize (/Users/890528gh/Desktop/side/task-app/node_modules/sequelize/lib/sequelize.js:192:15)
+    at eval (webpack-internal:///(api)/./utils/db.js:10:19)
+ [31m[1m⨯[22m[39m node_modules/axios/lib/core/settle.js (19:11) @ settle
+ [31m[1m⨯[22m[39m AxiosError: Request failed with status code 500
+    at Unzip.emit (node:events:526:35)
+    at async checkOrm (./app/page.tsx:11:17)
+    at async Home (./app/page.tsx:16:18)
+null
+ [31m[1m⨯[22m[39m node_modules/axios/lib/core/settle.js (19:11) @ settle
+ [31m[1m⨯[22m[39m AxiosError: Request failed with status code 500
+    at Unzip.emit (node:events:526:35)
+    at async checkOrm (./app/page.tsx:11:17)
+    at async Home (./app/page.tsx:16:18)
+null
+ [31m[1m⨯[22m[39m node_modules/axios/lib/core/settle.js (19:11) @ settle
+ [31m[1m⨯[22m[39m AxiosError: Request failed with status code 500
+    at Unzip.emit (node:events:526:35)
+    at async checkOrm (./app/page.tsx:11:17)
+    at async Home (./app/page.tsx:16:18)
+digest: "1457858859"
+null
+ [31m[1m⨯[22m[39m node_modules/axios/lib/core/settle.js (19:11) @ settle
+ [31m[1m⨯[22m[39m AxiosError: Request failed with status code 500
+    at Unzip.emit (node:events:526:35)
+    at async checkOrm (./app/page.tsx:11:17)
+    at async Home (./app/page.tsx:16:18)
+digest: "1457858859"
+null
+ [33m[1m⚠[22m[39m Fast Refresh had to perform a full reload due to a runtime error.
