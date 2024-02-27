@@ -1,6 +1,4 @@
-import Image from "next/image";
 import axios from 'axios';
-import SideBar from "./components/sidebar";
 import Board from './components/board';
 
 const getAllUser = async () => {
@@ -15,8 +13,10 @@ export default async function Home() {
   console.log(userData);
   
   return (
-    <div className="">
-      
-    </div>
+    <Board>
+      <div>
+
+      </div>
+    </Board>
   );
 }
