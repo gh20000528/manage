@@ -21,6 +21,10 @@ body {
 
 }
 
+.note{
+  overflow-y: scroll;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;

@@ -13,7 +13,7 @@ export default async function DeleteCard(req: NextApiRequest, res: NextApiRespon
 
         await card.destroy();
 
-        return res.status(200).json({ message: 'delete success'}); // 204表示成功但無內容
+        return res.status(200).json({ message: 'delete success'}); 
     } catch (error) {
         return res.status(500).json({ message: error || "Internal Server Error" });
     }
