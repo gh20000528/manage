@@ -27,9 +27,7 @@ export default function Login({}) {
     const sumbitHandler = async (e: any) => {
         e.preventDefault()
         await login(formData.email, formData.password)
-        if (isLongin) {
-            router.push('/task'); 
-        }
+        router.push('/task'); 
     }   
     
     

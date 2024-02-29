@@ -21,7 +21,7 @@ export default async function signup (req: NextApiRequest, res: NextApiResponse)
         password: hashedPassword,
       });
   
-      res.status(201).json({ user: newUser });
+      res.status(200).json({ message: 'success' });
     } catch (err) {
       return console.log(err);
     }

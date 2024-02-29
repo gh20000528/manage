@@ -8,7 +8,7 @@ import { useState } from 'react';
 
 export default function AuthPage() {
     const [switchPage, isSwitchPage] = useState(false)
-    const { isLongin } = useAuth()
+    const {  } = useAuth()
 
     const swichPage = (e: any) => {
         e.preventDefault()

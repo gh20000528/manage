@@ -10,7 +10,6 @@ export default function SideBar() {
     const { isLongin } = useAuth()
     const [isModalOpen, setIsModalOpen] = useState(false);
 
-
     
     const toggleModal = (e: any) => {
         e.preventDefault()
