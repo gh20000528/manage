@@ -5,9 +5,9 @@ interface BoardProps {
     children: ReactNode;
 }
 
-const Board: React.FC<BoardProps> = ({ children }) => {
+const Board = ({ children }: BoardProps) => {
     return (
-        <div className="w-3/4 bg-cyan-950 h-full mx-3 rounded-xl shadow-2xl">
+        <div className="w-5/6 bg-cyan-950 h-full mx-2 rounded-xl shadow-2xl">
             {children}
         </div>
     );

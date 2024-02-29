@@ -2,20 +2,26 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import Modal from '../tools/modal'; // 假設您有一個 Modal 元件
-import Auth from '../auth';
+import AuthPage from '../../auth/page';
+import { useAuth } from '../../stroe/AuthContext';
 
 
 export default function SideBar() {
+    const { isLongin } = useAuth()
     const [isModalOpen, setIsModalOpen] = useState(false);
 
+
+    
     const toggleModal = (e: any) => {
         e.preventDefault()
-        setIsModalOpen(!isModalOpen);
+        
+        if (e.target.value === '登入'){
+            setIsModalOpen(!isModalOpen);
+        }
     };
     return (
-        <div className="w-1/4 bg-cyan-950 h-full mx-3 rounded-xl shadow-2xl">
-            {isModalOpen && <Auth/>}
+        <div className="w-1/6 bg-cyan-950 h-full mx-2 rounded-xl shadow-2xl">
+            {isModalOpen && <AuthPage/>}
             <nav className='text-cyan-50 flex flex-col p-10 text-xl'>
                 <Link href='/task' className='py-2 cursor-pointer'>我的任務</Link>
                 <Link href='/worklist' className='py-2 cursor-pointer'>任務日誌</Link>
@@ -23,7 +29,7 @@ export default function SideBar() {
             </nav>
 
 
-            <button onClick={toggleModal}>登入</button>
+            <button onClick={toggleModal} className='text-cyan-50 flex flex-col p-10 text-xl' value={isLongin? '登出' : '登入'}>{isLongin? '登出' : '登入'}</button>
         </div>
     );
 }
