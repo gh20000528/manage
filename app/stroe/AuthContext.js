@@ -35,11 +35,30 @@ export const AuthProvider = ({ children }) => {
         }
     }
 
+    const logout = async () => {
+        let token = sessionStorage.getItem('data')
+        token = JSON.parse(token).userToken;
+        console.log(token);
+        try {
+            await axios.post('http://localhost:3000/api/user/logout', { token }, { withCredentials: true })
+                .then((res) => {
+                    console.log(res.status === 200);
+                    if (res.status === 200) {
+                        sessionStorage.removeItem('data')
+                        setIsLogin(false);
+                    }
+                })
+        } catch (error) {
+            console.log(error);
+        }
+
+    }
+
     // console.log(isLongin);
 
 
     return (
-        <AuthContext.Provider value={{ isLongin, login, signup }}>
+        <AuthContext.Provider value={{ isLongin, login, signup, logout }}>
             {children}
         </AuthContext.Provider>
     )

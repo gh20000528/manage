@@ -4,6 +4,8 @@ import bcryptjs from 'bcryptjs';
 import * as yup from 'yup';
 import jwt from 'jsonwebtoken';
 import User from '../../models/user';
+import { cookies } from 'next/headers'
+
 
 const schema = yup.object().shape({
     email: yup.string().email().required(),
@@ -39,8 +41,10 @@ export default async function login (req: NextApiRequest, res: NextApiResponse) 
         );
     
         const { password: userPassword, ...others } = loggedInUser.dataValues;
-  
-        res.status(200).json({ message:'user login', userToken: token });
+
+        
+        res.setHeader('Set-Cookie', `token=${token}; HttpOnly; Path=/`)
+        res.status(200).json({ userToken: token });
     } catch (err) {
       return res.status(500).json({ message:`error message ${err}` });
     }    

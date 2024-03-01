@@ -1,11 +1,12 @@
 import React, { ReactNode, useState } from 'react';
-import Link from 'next/link';
+import { useAuth } from '../../stroe/AuthContext';
 
 interface ModalProps {
   children?: ReactNode;
 }
 
 export default function Modal ({ children }: ModalProps) {
+  const { isLongin } = useAuth()
   const [isOpen, setIsOpen] = useState(true);
 
   const toggleModal = () => {

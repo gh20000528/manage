@@ -1,21 +1,28 @@
 "use client"
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import AuthPage from '../../auth/page';
 import { useAuth } from '../../stroe/AuthContext';
 
 
 export default function SideBar() {
-    const { isLongin } = useAuth()
+    const { isLongin, logout } = useAuth()
     const [isModalOpen, setIsModalOpen] = useState(false);
 
+    useEffect(() => {
+        if (isLongin) {
+            setIsModalOpen(false);
+        }
+    }, [isLongin]);
     
     const toggleModal = (e: any) => {
         e.preventDefault()
         
         if (e.target.value === '登入'){
             setIsModalOpen(!isModalOpen);
+        } else if (e.target.value === '登出'){
+            logout()
         }
     };
     return (
