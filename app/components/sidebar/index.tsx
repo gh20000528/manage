@@ -33,11 +33,12 @@ export default function SideBar() {
             setIsModalOpen(!isModalOpen);
         } else if (e.target.value === '登出'){
             logout()
+            
         }
     };
     return (
-        <div className="w-1/6 bg-cyan-950 h-full mx-2 rounded-xl shadow-2xl flex flex-col justify-between">
-            <UserInfo/>
+        <div className="w-1/6 board h-full mx-2 rounded-xl shadow-2xl flex flex-col justify-between">
+            <UserInfo data={user}/>
 
             {isModalOpen && <AuthPage/>}
             <nav className='text-cyan-50 flex flex-col p-10 text-xl'>

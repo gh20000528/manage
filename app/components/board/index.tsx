@@ -7,7 +7,7 @@ interface BoardProps {
 
 const Board = ({ children }: BoardProps) => {
     return (
-        <div className="w-5/6 bg-cyan-950 h-full mx-2 rounded-xl shadow-2xl">
+        <div className=" relative w-5/6 board h-full mx-2 rounded-xl shadow-2xl">
             {children}
         </div>
     );
