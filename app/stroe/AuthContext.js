@@ -7,6 +7,7 @@ export const AuthContext = createContext()
 
 export const AuthProvider = ({ children }) => {
     const [isLongin, setIsLogin] = useState(false)
+
     useEffect(() => {
         const data = sessionStorage.getItem('data');
         if (data) {
@@ -38,7 +39,6 @@ export const AuthProvider = ({ children }) => {
     const logout = async () => {
         let token = sessionStorage.getItem('data')
         token = JSON.parse(token).userToken;
-        console.log(token);
         try {
             await axios.post('http://localhost:3000/api/user/logout', { token }, { withCredentials: true })
                 .then((res) => {
@@ -54,11 +54,26 @@ export const AuthProvider = ({ children }) => {
 
     }
 
-    // console.log(isLongin);
+    const userList = async () => {
+        let token = sessionStorage.getItem('data');
+        if (!token) {
+            console.log('No user token found');
+            return null; // 或者返回適當的預設值
+        }
+        token = JSON.parse(token).userToken;
+        try {
+            const res = await axios.post('http://localhost:3000/api/user/userlist', { token }, { withCredentials: true });
+            const userData = res.data;
+            console.log(userData);
+            return userData;
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
 
     return (
-        <AuthContext.Provider value={{ isLongin, login, signup, logout }}>
+        <AuthContext.Provider value={{ isLongin, login, signup, logout, userList }}>
             {children}
         </AuthContext.Provider>
     )

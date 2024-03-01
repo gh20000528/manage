@@ -1,5 +1,4 @@
 import { NextApiRequest, NextApiResponse} from 'next';
-import checkUserInput from '../../../utils/yup';
 import bcryptjs from 'bcryptjs';
 import * as yup from 'yup';
 import jwt from 'jsonwebtoken';

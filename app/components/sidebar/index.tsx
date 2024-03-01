@@ -4,15 +4,25 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import AuthPage from '../../auth/page';
 import { useAuth } from '../../stroe/AuthContext';
+import UserInfo from '../user';
 
 
 export default function SideBar() {
-    const { isLongin, logout } = useAuth()
+    const { isLongin, logout, userList } = useAuth()
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [user, setUser] = useState()
 
     useEffect(() => {
         if (isLongin) {
             setIsModalOpen(false);
+            const userData = async () => {
+                const res = await userList()
+                console.log(res);
+                
+                setUser(res)
+            }
+    
+            userData()
         }
     }, [isLongin]);
     
@@ -26,7 +36,9 @@ export default function SideBar() {
         }
     };
     return (
-        <div className="w-1/6 bg-cyan-950 h-full mx-2 rounded-xl shadow-2xl">
+        <div className="w-1/6 bg-cyan-950 h-full mx-2 rounded-xl shadow-2xl flex flex-col justify-between">
+            <UserInfo/>
+
             {isModalOpen && <AuthPage/>}
             <nav className='text-cyan-50 flex flex-col p-10 text-xl'>
                 <Link href='/task' className='py-2 cursor-pointer'>我的任務</Link>
