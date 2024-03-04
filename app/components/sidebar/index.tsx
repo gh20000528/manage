@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import AuthPage from '../../auth/page';
 import { useAuth } from '../../stroe/AuthContext';
 import UserInfo from '../user';
@@ -11,6 +12,7 @@ export default function SideBar() {
     const { isLongin, logout, userList } = useAuth()
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [user, setUser] = useState()
+    const router = useRouter(); 
 
     useEffect(() => {
         if (isLongin) {
@@ -33,7 +35,7 @@ export default function SideBar() {
             setIsModalOpen(!isModalOpen);
         } else if (e.target.value === '登出'){
             logout()
-            
+            router.push('/'); 
         }
     };
     return (

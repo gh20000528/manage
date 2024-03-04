@@ -17,6 +17,9 @@ Card.init({
     level: {
         type: DataTypes.STRING
     },
+    finish: {
+        type: DataTypes.BOOLEAN
+    },
     daybegin: {
         type: DataTypes.STRING
     },
