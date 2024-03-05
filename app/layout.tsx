@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import SideBar from "./components/sidebar";
 import { AuthProvider } from "./stroe/AuthContext";
+import { CardProvider } from './stroe/CardContext';
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -21,10 +22,12 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <AuthProvider>
-          <div className="flex p-5 h-screen relative">
-            <SideBar/>
-            {children}
-          </div>
+          <CardProvider>
+            <div className="flex p-5 h-screen relative">
+              <SideBar/>
+              {children}
+            </div>
+          </CardProvider>
         </AuthProvider>
       </body>
     </html>

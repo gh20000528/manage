@@ -1,5 +1,7 @@
-import axios from 'axios';
+"use client"
+
 import Board from './components/board';
+
 
 
 
