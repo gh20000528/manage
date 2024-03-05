@@ -4,6 +4,7 @@ import { useRouter } from 'next/navigation';
 import { useAuth } from '../stroe/AuthContext';
 
 
+
 export default function Login({}) {
     const { login, isLongin } = useAuth()
     const router = useRouter(); 
@@ -21,8 +22,6 @@ export default function Login({}) {
             [name]: value
         }))
     }
-
-    // console.log(formData);
 
     const sumbitHandler = async (e: any) => {
         e.preventDefault()

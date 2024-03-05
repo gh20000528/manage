@@ -27,6 +27,7 @@ body {
 
 .board{
   background-color: #252525;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
 
 .card {
@@ -34,9 +35,51 @@ body {
   background-color: #3A3B3C;
 }
 
-.newCardBtn {
-  @apply text-white text-2xl absolute right-10 bottom-10 p-5 card rounded-full
+.linkfocus {
+  background-color: #3A3B3C;
+  position: relative;
+  box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
 }
+
+.linkfocus::after{
+  content: '';
+  position: absolute;
+  border-right: 4px solid #38a169;
+  height: 100%;
+  top: 0;
+  right: 0;
+}
+
+.newCardBtn {
+  @apply text-white text-2xl fixed right-10 bottom-10 p-5 card rounded-full
+}
+
+.newCardBtn:hover::after{
+  opacity: 1;
+  transition: all 0.3s;
+}
+
+.newCardBtn::after{
+  content: '新增卡片';
+  position: absolute;
+  width: 100px;
+  height: 30px;
+  border-radius: 10px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  background: #3A3B3C;
+  top:-40px;
+  right: -15px;
+  opacity: 0; 
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+
+
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
