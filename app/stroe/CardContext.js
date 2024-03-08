@@ -40,10 +40,28 @@ export const CardProvider = ({ children }) => {
             setCard(updatedCard);
         }
     }
+
+    const selectCard = async (select) => {
+        console.log(select);
+        try {
+            let token = sessionStorage.getItem('data');
+            if (!token) {
+                console.log('No user token found');
+                return null; 
+            }
+            token = JSON.parse(token).userToken;
+
+            const res = await axios.post('http://localhost:3000/api/card/cardselect', { select, token })
+
+            setCard(res.data);
+        } catch (error) {
+            console.log(error);
+        }
+    }
     
 
     return (
-        <CardContext.Provider value={{ cardList, card, finishCard }}>
+        <CardContext.Provider value={{ cardList, card, finishCard, selectCard }}>
             {children}
         </CardContext.Provider>
     )
