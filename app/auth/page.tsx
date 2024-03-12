@@ -5,6 +5,8 @@ import Login from './login';
 import Signup from './signup';
 import { useAuth } from '../stroe/AuthContext';
 import { useState } from 'react';
+import { motion } from 'framer-motion';
+
 
 export default function AuthPage() {
     const [switchPage, isSwitchPage] = useState(false)
@@ -16,7 +18,13 @@ export default function AuthPage() {
     }
 
     return (
+
         <Modal>
+            <motion.div
+            initial={{ y: "-80vh" }}
+            animate={{ y: 0 }}
+            transition={{ duration: 0.5, type: "spring", stiffness: 120 }}
+            >
             <section className="">
                 <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto">
                     <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
@@ -33,6 +41,7 @@ export default function AuthPage() {
                     </div>
                 </div>
             </section>
+            </motion.div>
         </Modal>
     )
 }

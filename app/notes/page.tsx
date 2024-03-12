@@ -3,6 +3,7 @@
 import dynamic from "next/dynamic";
 import { useState } from "react";
 import Board from "../components/board";
+import Tiptap from '../components/tools/tiptap';
 
 const Editor = dynamic(() => import("./editorinit"), {
     ssr: false,

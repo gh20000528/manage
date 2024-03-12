@@ -46,10 +46,12 @@ export default function TaskPage(){
     return (
         <Board>
             {loading && <Loading/>}
-            {openModal && <NewCard isOpen={openModal} setOpenModal={setOpenModal} />}
+            {openModal && 
+                <NewCard isOpen={openModal} setOpenModal={setOpenModal} 
+            />}
             <div className="p-5 relative h-full overflow-auto">
                 <h1 className="text-xl text-white">任務列表</h1>
-                <select onChange={ selecthandler }  className=" absolute top-2 right-20 block py-2.5 px-0 w-20 text-l text-gray-200 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
+                <select onChange={ selecthandler }  className=" absolute top-2 right-20 block py-2.5 px-0 w-20 text-l text-gray-200 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 text-center peer">
                     <option value="all">全部</option>
                     <option value="time">時間</option>
                 </select>
